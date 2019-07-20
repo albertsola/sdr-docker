@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-docker build -t sdr-builder builder/.
-docker build -t dump1090 dump1090/.
-docker build -t openwebrx openwebrx/.
-docker build -t rtl_tcp rtl_tcp/.
-docker build -t sdr sdr/.
+docker build -t sdr-builder:latest builder/.
+docker build -t dump1090:latest dump1090/.
+docker build -t openwebrx:latest openwebrx/.
+docker build -t rtl_tcp:latest rtl_tcp/.
+docker build -t sdr:latest sdr/.
