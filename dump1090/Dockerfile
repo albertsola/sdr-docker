@@ -1,11 +1,6 @@
-FROM ubuntu:18.04
+FROM sdr-builder
 
 MAINTAINER Albert Sola <albert.sola@gmail.com>
-
-RUN apt-get update && \
-    apt-get install -y pkg-config librtlsdr-dev git build-essential && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/local
 RUN git clone https://github.com/antirez/dump1090.git && \

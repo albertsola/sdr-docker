@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
 #Fetch and build rtl-sdr, skip if already done (subdirectories will be created under the current directory).
-git clone git://git.osmocom.org/rtl-sdr.git
-cd rtl-sdr/
-mkdir build
-cd build
-cmake ../ -DINSTALL_UDEV_RULES=ON
-make
-make install
-ldconfig
-cd ../..
+#git clone git://git.osmocom.org/rtl-sdr.git
+#cd rtl-sdr/
+#mkdir build
+#cd build
+#cmake ../ -DINSTALL_UDEV_RULES=ON
+#make
+#make install
+#ldconfig
+#cd ../..
 
 #Disable the DVB-T driver, which would prevent the rtl_sdr tool from accessing the stick
 #(if you want to use it for DVB-T reception later, you should undo this change):
@@ -25,6 +25,7 @@ git clone https://github.com/simonyiszk/csdr.git
 
 #Compile libcsdr (which is a dependency of OpenWebRX)
 cd csdr
+sed -i "s/PARAMS_NEON =.*/c\PARAMS_NEON = -march=armv8-a -mtune=cortex-a53 -funsafe-math-optimizations -Wformat=0/g" Makefile
 make
 make install
 

@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM sdr-builder
 
 MAINTAINER Albert Sola <albert.sola@gmail.com>
 
