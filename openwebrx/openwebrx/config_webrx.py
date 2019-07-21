@@ -36,20 +36,20 @@ config_webrx: configuration options for OpenWebRX
 
 # ==== Server settings ====
 web_port=8073
-server_hostname="localhost" # If this contains an incorrect value, the web UI may freeze on load (it can't open websocket)
-max_clients=20
+server_hostname="docker.local" # If this contains an incorrect value, the web UI may freeze on load (it can't open websocket)
+max_clients=5
 
 # ==== Web GUI configuration ====
 receiver_name="[Callsign]"
-receiver_location="Budapest, Hungary"
-receiver_qra="JN97ML"
+receiver_location="Stirling, United Kingdom"
+receiver_qra="None"
 receiver_asl=200
 receiver_ant="Longwire"
 receiver_device="RTL-SDR"
 receiver_admin="example@example.com"
-receiver_gps=(47.000000,19.000000)
+receiver_gps=(56.1165227,-3.9369029)
 photo_height=350
-photo_title="Panorama of Budapest from Schönherz Zoltán Dormitory"
+photo_title="-"
 photo_desc="""
 You can add your own background photo and receiver information.<br />
 Receiver is operated by: <a href="mailto:%[RX_ADMIN]">%[RX_ADMIN]</a><br/>
@@ -73,14 +73,14 @@ fft_voverlap_factor=0.3 #If fft_voverlap_factor is above 0, multiple FFTs will b
 
 # samp_rate = 250000
 samp_rate = 2400000
-center_freq = 144250000
-rf_gain = 5 #in dB. For an RTL-SDR, rf_gain=0 will set the tuner to auto gain mode, else it will be in manual gain mode.
+center_freq = 446100000
+rf_gain = 0 #in dB. For an RTL-SDR, rf_gain=0 will set the tuner to auto gain mode, else it will be in manual gain mode.
 ppm = 0
 
 audio_compression="adpcm" #valid values: "adpcm", "none"
 fft_compression="adpcm" #valid values: "adpcm", "none"
 
-digimodes_enable=True #Decoding digimodes come with higher CPU usage. 
+digimodes_enable=False #Decoding digimodes come with higher CPU usage.
 digimodes_fft_size=1024
 
 start_rtl_thread=True

@@ -7,13 +7,13 @@ WORKDIR /app
 #	git clone https://github.com/simonyiszk/csdr.git
 COPY csdr /app/csdr
 COPY openwebrx /app/openwebrx
-WORKDIR /app/csdrgit
+WORKDIR /app/csdr
 
 RUN sed -i "s/PARAMS_NEON =.*/c\PARAMS_NEON = -march=armv8-a -mtune=cortex-a53 -funsafe-math-optimizations -Wformat=0/g" Makefile
 RUN make; make install
 
 WORKDIR /app/openwebrx
 
-EXPOSE 4951
+EXPOSE 4951, 8073
 
 CMD ["/app/openwebrx/openwebrx.py"]
